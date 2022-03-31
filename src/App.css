@@ -1,37 +1,49 @@
+* {
+  margin: 0;
+  border: none;
+}
 html,body, #root, .App{
   width: 100%;
   height: 100%;
   background-color: black;
   color:white;
+}
 
-}
-#cell-numers-temp{
-  height: 2rem;
-  width: 4rem;
-  position: absolute;
-  left: 10rem;
-}
 .arena-wrapper{
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+}
+.grid-wrapper{
+  max-width: 100vw;
+  margin-top: 5px;
+  width: 45vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1 !important;
 }
 .grid{
-  margin-top: 2rem;
-  height: 50%;
+  width: 100%;
+  height: 100%;
   border: 3px solid white;
   display: grid;
-  aspect-ratio: 1/1;
+  transition: all 200ms ease-in-out;
+}
+.cell{
+  border-bottom: 1px solid hsl(0, 0%, 50%);
+  border-right: 1px solid hsl(0, 0%, 50%);
+}
+.active{
+  background-color: white;
+  box-shadow: inset 0px 0px 4px 2px rgba(0, 0, 0, 0.5);
 }
 
-.cell{
-  border-bottom: 1px solid white;
-  border-right: 1px solid white;
-}
-.active, .head{
-  background-color: white;
+.head{
+  background-color: rgb(223, 182, 72);
   box-shadow: inset 0px 0px 4px 2px rgba(0, 0, 0, 0.5);
 }
 .food{
@@ -39,5 +51,48 @@ html,body, #root, .App{
   box-shadow: inset 0px 0px 4px 2px rgba(0, 0, 0, 0.3);
 }
 .controlls-wrapper{
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  width: 100%;
+  max-width: 350px;
+  gap: 5%;
+}
+.controlls-wrapper button{
+  border: 3px solid hsl(0, 0%, 100%);
+  background-color: rgba(181, 181, 181, 0.8);
+  border-radius: 10px;
+  aspect-ratio: 1/1;
+}
+#up{
+  grid-column: 2;
+  grid-row: 1; 
+}
+#left{
+  grid-column: 1;
+  grid-row: 2; 
+}
+#down{
+  grid-column: 2;
+  grid-row: 2; 
+}
+#right{
+  grid-column: 3;
+  grid-row: 2; 
+}
+#cell-numbers{
+  grid-column: 1;
+  grid-row: 1; 
+  width: 80%;
+  max-width: 4rem;
+  height: 1.5rem;
+}
+
+@media (orientation: landscape){
+  .grid-wrapper{
+    height: 65vh;
+    width: auto;
+  }
 }
